@@ -1,0 +1,812 @@
+<?xml version="1.0" ?>
+<VoreenData version="1">
+    <Workspace version="2" readonly="false">
+        <ProcessorNetwork version="21">
+            <MetaData>
+                <MetaItem name="DocumentationGraphicsItems" type="SerializableVectorMetaData::TextBoxMetaData" isOwner="true">
+                    <values>
+                        <item type="TextBoxMetaData" userType="65568" caption="Preprocessing" captionFontSize="9" x="-6" y="-667" width="596" height="341" baseColor="#0da49a" />
+                        <item type="TextBoxMetaData" userType="65568" caption="Graph Extraction" captionFontSize="9" x="0" y="-313" width="588" height="503" baseColor="#a49701" />
+                        <item type="TextBoxMetaData" userType="65568" caption="Input" captionFontSize="9" x="-6" y="-892" width="432" height="211" />
+                        <item type="TextBoxMetaData" userType="65568" caption="Output" captionFontSize="9" x="-2" y="193" width="586" height="251" baseColor="#49a44c" />
+                        <item type="TextBoxMetaData" userType="65568" caption="Rendering" captionFontSize="9" x="592" y="-661" width="412" height="1103" baseColor="#dd7031" />
+                    </values>
+                </MetaItem>
+                <MetaItem name="ProcessorSelection" type="SerializableVectorMetaData::Processor" isOwner="false">
+                    <values>
+                        <item type="VolumeFilterList" ref="ref1" />
+                    </values>
+                </MetaItem>
+                <MetaItem name="ZoomCenter" type="Vec2MetaData">
+                    <value x="1036.572509766" y="-446.059539795" />
+                </MetaItem>
+                <MetaItem name="ZoomFactor" type="FloatMetaData" value="0.629960716" />
+                <MetaItem name="autoLinkCameras" type="BoolMetaData" value="false" />
+                <MetaItem name="autoLinkPortSize" type="BoolMetaData" value="false" />
+            </MetaData>
+            <Processors>
+                <Processor type="VolumeSource" name="Vessel Volume" id="ref0">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="96" y="-802" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="volumeInfo" name="volumeInfo" />
+                        <Property mapKey="volumeURL" name="volumeURL" watchMode="1" fileWatchEnabled="false">
+                            <urls protocol="">
+                                <path noPathSet="false">
+                                    <paths>
+                                        <item value="../BL6J-no1_iso3um_stitched_segmentation_1500_1600_1500_1600_1000_1100.nii" />
+                                        <item value="../../../../BL6J-no1_iso3um_stitched_segmentation_1500_1600_1500_1600_1000_1100.nii" />
+                                        <item value="/home/juli/BL6J-no1_iso3um_stitched_segmentation_1500_1600_1500_1600_1000_1100.nii" />
+                                    </paths>
+                                </path>
+                                <searchParameters>
+                                    <value key="channel" value="0" />
+                                    <value key="preferredReader" value="AnalyzeVolumeReader" />
+                                    <value key="volumeId" value="0" />
+                                </searchParameters>
+                            </urls>
+                        </Property>
+                    </Properties>
+                    <Inports />
+                    <Outports>
+                        <Port name="volumehandle.volumehandle" direction="0" portID="volumehandle.volumehandle" guiName="Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="VesselGraphCreator" name="VesselGraphCreator" id="ref2">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="152" y="-260" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="binarizationThresholdSegmentation" name="binarizationThresholdSegmentation" value="0.5" />
+                        <Property mapKey="invalidationMode" name="invalidationMode" value="invalidateAbort" />
+                        <Property mapKey="manualUpdateButton_" name="manualUpdateButton_" />
+                        <Property mapKey="minBulgeSize" name="minBulgeSize" value="1" />
+                        <Property mapKey="minElongation" name="minElongation" value="0" />
+                        <Property mapKey="minVoxelLength" name="minVoxelLength" value="0" />
+                        <Property mapKey="numRefinementIterations" name="numRefinementIterations" guiName="Maximum Refinement Iterations" value="100" />
+                        <Property mapKey="progressDisplay" name="progressDisplay" />
+                        <Property mapKey="saveDebugData" name="saveDebugData" value="false" />
+                        <Property mapKey="statusDisplay" name="statusDisplay" value="Finished in 3.869 sec" />
+                        <Property mapKey="stopUpdateButton" name="stopUpdateButton" />
+                        <Property mapKey="synchronousComputation" name="synchronousComputation" value="false" />
+                        <Property mapKey="tmpStorageSizeInfo" name="tmpStorageSizeInfo" value="251.5 kB" />
+                    </Properties>
+                    <Inports>
+                        <Port name="vesselgraphcreator.fixedForegroundPointInport" direction="1" portID="vesselgraphcreator.fixedForegroundPointInport" guiName="Fixed Foreground Points" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties />
+                        </Port>
+                        <Port name="vesselgraphcreator.samplemask.inport" direction="1" portID="vesselgraphcreator.samplemask.inport" guiName="Sample Mask (optional)" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                        <Port name="vesselgraphcreator.segmentedVolume.inport" direction="1" portID="vesselgraphcreator.segmentedVolume.inport" guiName="Segmentation Volume" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                    </Inports>
+                    <Outports>
+                        <Port name="generatedGraphs.outport" direction="0" portID="generatedGraphs.outport" guiName="Generated Graphs" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                        <Port name="generatedSkeletons.outport" direction="0" portID="generatedSkeletons.outport" guiName="Generated Skeletons" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                        <Port name="vesselgraphcreator_graph.outport" direction="0" portID="vesselgraphcreator_graph.outport" guiName="Graph" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="VesselGraphSave" name="VesselGraphSave" id="ref3">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="116" y="267" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="continousSave" name="continousSave" value="false" />
+                        <Property mapKey="graphFilePath" name="graphFilePath" guiName="Vessel Graph File" watchMode="1" fileWatchEnabled="false">
+                            <paths noPathSet="true" />
+                        </Property>
+                        <Property mapKey="prettyJson" name="prettyJson" value="false" />
+                        <Property mapKey="save" name="save" />
+                    </Properties>
+                    <Inports>
+                        <Port name="graph.input" direction="1" portID="graph.input" guiName="Graph Input" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties />
+                        </Port>
+                    </Inports>
+                    <Outports />
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="VolumeSource" name="Sample Mask" id="ref5">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="271" y="-799" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="volumeInfo" name="volumeInfo" />
+                        <Property mapKey="volumeURL" name="volumeURL" watchMode="1" fileWatchEnabled="false">
+                            <urls protocol="" absolute="false">
+                                <path noPathSet="true" />
+                                <searchParameters />
+                            </urls>
+                        </Property>
+                    </Properties>
+                    <Inports />
+                    <Outports>
+                        <Port name="volumehandle.volumehandle" direction="0" portID="volumehandle.volumehandle" guiName="Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="ConnectedComponentAnalysis" name="Cavity Removal" id="ref6">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="101" y="-485" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="applyLabeling" name="applyLabeling" value="false" />
+                        <Property mapKey="binarizationThreshold" name="binarizationThreshold" value="0.5" tracking="false" />
+                        <Property mapKey="componentStatFilePath" name="componentStatFilePath" watchMode="1" fileWatchEnabled="false">
+                            <paths noPathSet="true" />
+                        </Property>
+                        <Property mapKey="invalidationMode" name="invalidationMode" value="invalidateRestart" />
+                        <Property mapKey="invertBinarization" name="invertBinarization" value="true" />
+                        <Property mapKey="manualUpdateButton_" name="manualUpdateButton_" />
+                        <Property mapKey="minBoundsDiagonal" name="minBoundsDiagonal" value="0" tracking="false" />
+                        <Property mapKey="minBoundsDiagonalRelative" name="minBoundsDiagonalRelative" guiName="Minimal Cavity Diagonal (relative)" value="0.899999976" tracking="false" />
+                        <Property mapKey="minVoxelVolume" name="minVoxelVolume" value="0" tracking="false" />
+                        <Property mapKey="neighbourhoodMode" name="neighbourhoodMode" value="n6" />
+                        <Property mapKey="outputVolumeDeflateLevel" name="outputVolumeDeflateLevel" value="1" />
+                        <Property mapKey="outputVolumeFilePath" name="outputVolumeFilePath" watchMode="3" fileWatchEnabled="false" useGeneratedPath="true">
+                            <paths noPathSet="false">
+                                <paths>
+                                    <item value="../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/6919ceca-add4-40e0-ab4b-a1f58809f080.h5" />
+                                    <item value="../../../../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/6919ceca-add4-40e0-ab4b-a1f58809f080.h5" />
+                                    <item value="/home/juli/Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/6919ceca-add4-40e0-ab4b-a1f58809f080.h5" />
+                                </paths>
+                            </paths>
+                        </Property>
+                        <Property mapKey="progressDisplay" name="progressDisplay" guiName="Progress (Cavity Removal)" />
+                        <Property mapKey="sortingMethod" name="sortingMethod" value="none" />
+                        <Property mapKey="statusDisplay" name="statusDisplay" value="Finished in 190 ms" />
+                        <Property mapKey="stopUpdateButton" name="stopUpdateButton" />
+                        <Property mapKey="synchronousComputation" name="synchronousComputation" value="false" />
+                        <Property mapKey="writeComponentStatFile" name="writeComponentStatFile" value="false" />
+                    </Properties>
+                    <Inports>
+                        <Port name="connectedcomponentanalysis.inport" direction="1" portID="connectedcomponentanalysis.inport" guiName="Binary Volume Input" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                    </Inports>
+                    <Outports>
+                        <Port name="connectedcomponentanalysis.outport" direction="0" portID="connectedcomponentanalysis.outport" guiName="Label Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="ConnectedComponentAnalysis" name="Object Removal" id="ref7">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="100" y="-401" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="applyLabeling" name="applyLabeling" value="false" />
+                        <Property mapKey="binarizationThreshold" name="binarizationThreshold" value="0.5" tracking="false" />
+                        <Property mapKey="componentStatFilePath" name="componentStatFilePath" watchMode="1" fileWatchEnabled="false">
+                            <paths noPathSet="true" />
+                        </Property>
+                        <Property mapKey="invalidationMode" name="invalidationMode" value="invalidateRestart" />
+                        <Property mapKey="invertBinarization" name="invertBinarization" value="true" />
+                        <Property mapKey="manualUpdateButton_" name="manualUpdateButton_" />
+                        <Property mapKey="minBoundsDiagonal" name="minBoundsDiagonal" guiName="Minimal Object Bounding Box Diagonal (mm)" value="0" tracking="false" />
+                        <Property mapKey="minBoundsDiagonalRelative" name="minBoundsDiagonalRelative" guiName="Minimal Object Bounding Box Diagonal (relative)" value="0.050000001" tracking="false" />
+                        <Property mapKey="minVoxelVolume" name="minVoxelVolume" value="0" tracking="false" />
+                        <Property mapKey="neighbourhoodMode" name="neighbourhoodMode" value="n26" />
+                        <Property mapKey="outputVolumeDeflateLevel" name="outputVolumeDeflateLevel" value="1" />
+                        <Property mapKey="outputVolumeFilePath" name="outputVolumeFilePath" watchMode="3" fileWatchEnabled="false" useGeneratedPath="true">
+                            <paths noPathSet="false">
+                                <paths>
+                                    <item value="../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/c58960d9-4cac-4036-ad2e-1aef26946dae.h5" />
+                                    <item value="../../../../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/c58960d9-4cac-4036-ad2e-1aef26946dae.h5" />
+                                    <item value="/home/juli/Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/c58960d9-4cac-4036-ad2e-1aef26946dae.h5" />
+                                </paths>
+                            </paths>
+                        </Property>
+                        <Property mapKey="progressDisplay" name="progressDisplay" guiName="Progress (Object Removal)" />
+                        <Property mapKey="sortingMethod" name="sortingMethod" value="none" />
+                        <Property mapKey="statusDisplay" name="statusDisplay" value="Finished in 191 ms" />
+                        <Property mapKey="stopUpdateButton" name="stopUpdateButton" />
+                        <Property mapKey="synchronousComputation" name="synchronousComputation" value="false" />
+                        <Property mapKey="writeComponentStatFile" name="writeComponentStatFile" value="false" />
+                    </Properties>
+                    <Inports>
+                        <Port name="connectedcomponentanalysis.inport" direction="1" portID="connectedcomponentanalysis.inport" guiName="Binary Volume Input" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                    </Inports>
+                    <Outports>
+                        <Port name="connectedcomponentanalysis.outport" direction="0" portID="connectedcomponentanalysis.outport" guiName="Label Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="VolumeFilterList" name="Surface Smoothing" id="ref8">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="88" y="-562" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="Binarization_threshold" name="Binarization_threshold" value="0.5" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_binarizationThreshold" name="Binary_Median_Filter_binarizationThreshold" value="0.5" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extentx" name="Binary_Median_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extenty" name="Binary_Median_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extentz" name="Binary_Median_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_forceMedian" name="Binary_Median_Filter_forceMedian" value="true" />
+                        <Property mapKey="Binary_Median_Filter_objectVoxelThreshold" name="Binary_Median_Filter_objectVoxelThreshold" value="13" minValue="-2147483648" maxValue="27" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_outsideVolumeValue" name="Binary_Median_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_samplingStrategyType" name="Binary_Median_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Binary_Median_Filter_useUniformExtent" name="Binary_Median_Filter_useUniformExtent" value="true" />
+                        <Property mapKey="Gaussian_Filter_extentx" name="Gaussian_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_extenty" name="Gaussian_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_extentz" name="Gaussian_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_outsideVolumeValue" name="Gaussian_Filter_outsideVolumeValue" value="1" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_samplingStrategyType" name="Gaussian_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Gradient_gradientType" name="Gradient_gradientType" value="centralDifferences" />
+                        <Property mapKey="Gradient_outsideVolumeValue" name="Gradient_outsideVolumeValue" value="0" minValue="-340282346638528859811704183484516925440" maxValue="340282346638528859811704183484516925440" tracking="false" />
+                        <Property mapKey="Gradient_samplingStrategyType" name="Gradient_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Median_Filter_extentx" name="Median_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_extenty" name="Median_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_extentz" name="Median_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_outsideVolumeValue" name="Median_Filter_outsideVolumeValue" value="1" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Median_Filter_samplingStrategyType" name="Median_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Morphology_Filter_extentx" name="Morphology_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_extenty" name="Morphology_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_extentz" name="Morphology_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_morphologyOperatorShape" name="Morphology_Filter_morphologyOperatorShape" value="cube" />
+                        <Property mapKey="Morphology_Filter_morphologyOperatorType" name="Morphology_Filter_morphologyOperatorType" value="dilation" />
+                        <Property mapKey="Morphology_Filter_outsideVolumeValue" name="Morphology_Filter_outsideVolumeValue" value="1" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_samplingStrategyType" name="Morphology_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Resample_Filter_dimensions" name="Resample_Filter_dimensions" tracking="false">
+                            <value x="85" y="31" z="54" />
+                        </Property>
+                        <Property mapKey="Rescale_Filter_rescaleStrategyType" name="Rescale_Filter_rescaleStrategyType" value="logarithmic" />
+                        <Property mapKey="Thresholding_Filter_replacementValue" name="Thresholding_Filter_replacementValue" value="1" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Thresholding_Filter_thresholdValue" name="Thresholding_Filter_thresholdValue" value="1" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Thresholding_Filter_thresholdingStrategyType" name="Thresholding_Filter_thresholdingStrategyType" value="lower" />
+                        <Property mapKey="Vorticity_gradientType" name="Vorticity_gradientType" value="centralDifferences" />
+                        <Property mapKey="Vorticity_outsideVolumeValue" name="Vorticity_outsideVolumeValue" value="0" minValue="-340282346638528859811704183484516925440" maxValue="340282346638528859811704183484516925440" tracking="false" />
+                        <Property mapKey="Vorticity_samplingStrategyType" name="Vorticity_samplingStrategyType" value="clamp" />
+                        <Property mapKey="enabled" name="enabled" guiName="Enable Surface Smoothing" value="false" />
+                        <Property mapKey="filterList" name="filterList">
+                            <items>
+                                <item value="Binarization" />
+                                <item value="Binary Median Filter" />
+                                <item value="Gaussian Filter" />
+                                <item value="Gradient" />
+                                <item value="Median Filter" />
+                                <item value="Morphology Filter" />
+                                <item value="Resample Filter" />
+                                <item value="Rescale Filter" />
+                                <item value="Thresholding Filter" />
+                                <item value="Value Map" />
+                                <item value="Vorticity" />
+                            </items>
+                            <instances>
+                                <item itemId="1" instanceId="1" active="true" name="Binary Median Filter (1)" />
+                            </instances>
+                        </Property>
+                        <Property mapKey="invalidationMode" name="invalidationMode" value="invalidateRestart" />
+                        <Property mapKey="manualUpdateButton_" name="manualUpdateButton_" />
+                        <Property mapKey="outputVolumeDeflateLevel" name="outputVolumeDeflateLevel" value="1" />
+                        <Property mapKey="outputVolumeFilePath" name="outputVolumeFilePath" watchMode="3" fileWatchEnabled="false" useGeneratedPath="true">
+                            <paths noPathSet="false">
+                                <paths>
+                                    <item value="../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/fced3dbe-eec8-4979-aefd-686432f00d6c.h5" />
+                                    <item value="../../../../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/fced3dbe-eec8-4979-aefd-686432f00d6c.h5" />
+                                    <item value="/home/juli/Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/fced3dbe-eec8-4979-aefd-686432f00d6c.h5" />
+                                </paths>
+                            </paths>
+                        </Property>
+                        <Property mapKey="progressDisplay" name="progressDisplay" guiName="Progress (Surface Smoothing)" />
+                        <Property mapKey="statusDisplay" name="statusDisplay" value="Interrupted" />
+                        <Property mapKey="stopUpdateButton" name="stopUpdateButton" />
+                        <Property mapKey="synchronousComputation" name="synchronousComputation" value="false" />
+                        <Property mapKey="valueMap" name="valueMap" domainFittingStrategy="1" computeHistogram="true">
+                            <MetaData>
+                                <MetaItem name="ToolWindow" type="WindowStateMetaData" visible="false" />
+                            </MetaData>
+                            <TransferFunction type="TransFuncIntensity" alphaMode="1" filter="0" dataType="5121" gammaValue="1">
+                                <texDimensions x="1024" y="1" z="1" />
+                                <domain x="0" y="1" />
+                                <threshold x="0" y="1" />
+                                <Keys>
+                                    <key type="TransFuncMappingKey" intensity="0" split="false">
+                                        <colorL r="0" g="0" b="0" a="0" />
+                                    </key>
+                                    <key type="TransFuncMappingKey" intensity="1" split="false">
+                                        <colorL r="255" g="255" b="255" a="255" />
+                                    </key>
+                                </Keys>
+                            </TransferFunction>
+                        </Property>
+                    </Properties>
+                    <Inports>
+                        <Port name="volumehandle.input" direction="1" portID="volumehandle.input" guiName="Volume Input" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                    </Inports>
+                    <Outports>
+                        <Port name="volumehandle.output" direction="0" portID="volumehandle.output" guiName="Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                    <Binarization_instanceSettings />
+                    <Binary_Median_Filter_instanceSettings>
+                        <value key="1">
+                            <useUniformExtent_ name="Binary_Median_Filter_useUniformExtent" value="true" />
+                            <extentX name="Binary_Median_Filter_extentx" value="1" tracking="false" />
+                            <extentY name="Binary_Median_Filter_extenty" value="1" tracking="false" />
+                            <extentZ name="Binary_Median_Filter_extentz" value="1" tracking="false" />
+                            <binarizationThreshold name="Binary_Median_Filter_binarizationThreshold" value="0.5" minValue="0" maxValue="1" tracking="false" />
+                            <samplingStrategyType name="Binary_Median_Filter_samplingStrategyType" value="clamp" />
+                            <outsideVolumeValue name="Binary_Median_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                            <forceMedian name="Binary_Median_Filter_forceMedian" value="true" />
+                            <objectVoxelThreshold name="Binary_Median_Filter_objectVoxelThreshold" value="13" minValue="-2147483648" maxValue="27" tracking="false" />
+                        </value>
+                    </Binary_Median_Filter_instanceSettings>
+                    <Gaussian_Filter_instanceSettings />
+                    <Gradient_instanceSettings />
+                    <Median_Filter_instanceSettings />
+                    <Morphology_Filter_instanceSettings />
+                    <Resample_Filter_instanceSettings />
+                    <Rescale_Filter_instanceSettings />
+                    <Thresholding_Filter_instanceSettings />
+                    <Value_Map_instanceSettings />
+                    <Vorticity_instanceSettings />
+                </Processor>
+                <Processor type="VesselGraphGlobalStats" name="VesselGraphGlobalStats" id="ref4">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="280" y="268" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="autoExport" name="autoExport" value="true" />
+                        <Property mapKey="exportButton_" name="exportButton_" />
+                        <Property mapKey="nodeExportFilePath" name="nodeExportFilePath" guiName="Node Data Export File" watchMode="1" fileWatchEnabled="false">
+                            <paths noPathSet="true" />
+                        </Property>
+                        <Property mapKey="numEdges" name="numEdges" value="340" />
+                        <Property mapKey="numNodes" name="numNodes" value="329" />
+                        <Property mapKey="segmentExportFilePath" name="segmentExportFilePath" guiName="Edge Data Export File" watchMode="1" fileWatchEnabled="false">
+                            <paths noPathSet="true" />
+                        </Property>
+                    </Properties>
+                    <Inports>
+                        <Port name="graph.input" direction="1" portID="graph.input" guiName="Graph Input" allowMultipleConnections="false" invalidationLevel="10">
+                            <Properties />
+                        </Port>
+                    </Inports>
+                    <Outports />
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                </Processor>
+                <Processor type="VolumeFilterList" name="VolumeFilterList" id="ref1">
+                    <MetaData>
+                        <MetaItem name="ProcessorGraphicsItem" type="PositionMetaData" x="99" y="-637" />
+                    </MetaData>
+                    <Properties>
+                        <Property mapKey="Binarization_threshold" name="Binarization_threshold" value="0.5" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_binarizationThreshold" name="Binary_Median_Filter_binarizationThreshold" value="0.5" minValue="0" maxValue="340282346638528859811704183484516925440" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extentx" name="Binary_Median_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extenty" name="Binary_Median_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_extentz" name="Binary_Median_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_forceMedian" name="Binary_Median_Filter_forceMedian" value="true" />
+                        <Property mapKey="Binary_Median_Filter_objectVoxelThreshold" name="Binary_Median_Filter_objectVoxelThreshold" value="13" minValue="0" maxValue="27" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_outsideVolumeValue" name="Binary_Median_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Binary_Median_Filter_samplingStrategyType" name="Binary_Median_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Binary_Median_Filter_useUniformExtent" name="Binary_Median_Filter_useUniformExtent" value="true" />
+                        <Property mapKey="Gaussian_Filter_extentx" name="Gaussian_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_extenty" name="Gaussian_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_extentz" name="Gaussian_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_outsideVolumeValue" name="Gaussian_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Gaussian_Filter_samplingStrategyType" name="Gaussian_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Gradient_gradientType" name="Gradient_gradientType" value="centralDifferences" />
+                        <Property mapKey="Gradient_outsideVolumeValue" name="Gradient_outsideVolumeValue" value="0" minValue="-340282346638528859811704183484516925440" maxValue="340282346638528859811704183484516925440" tracking="false" />
+                        <Property mapKey="Gradient_samplingStrategyType" name="Gradient_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Median_Filter_extentx" name="Median_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_extenty" name="Median_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_extentz" name="Median_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Median_Filter_outsideVolumeValue" name="Median_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Median_Filter_samplingStrategyType" name="Median_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Morphology_Filter_extentx" name="Morphology_Filter_extentx" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_extenty" name="Morphology_Filter_extenty" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_extentz" name="Morphology_Filter_extentz" value="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_morphologyOperatorShape" name="Morphology_Filter_morphologyOperatorShape" value="cube" />
+                        <Property mapKey="Morphology_Filter_morphologyOperatorType" name="Morphology_Filter_morphologyOperatorType" value="dilation" />
+                        <Property mapKey="Morphology_Filter_outsideVolumeValue" name="Morphology_Filter_outsideVolumeValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Morphology_Filter_samplingStrategyType" name="Morphology_Filter_samplingStrategyType" value="clamp" />
+                        <Property mapKey="Resample_Filter_dimensions" name="Resample_Filter_dimensions" tracking="false">
+                            <value x="85" y="31" z="54" />
+                        </Property>
+                        <Property mapKey="Rescale_Filter_rescaleStrategyType" name="Rescale_Filter_rescaleStrategyType" value="logarithmic" />
+                        <Property mapKey="Thresholding_Filter_replacementValue" name="Thresholding_Filter_replacementValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Thresholding_Filter_thresholdValue" name="Thresholding_Filter_thresholdValue" value="0" minValue="0" maxValue="1" tracking="false" />
+                        <Property mapKey="Thresholding_Filter_thresholdingStrategyType" name="Thresholding_Filter_thresholdingStrategyType" value="lower" />
+                        <Property mapKey="Vorticity_gradientType" name="Vorticity_gradientType" value="centralDifferences" />
+                        <Property mapKey="Vorticity_outsideVolumeValue" name="Vorticity_outsideVolumeValue" value="0" minValue="-340282346638528859811704183484516925440" maxValue="340282346638528859811704183484516925440" tracking="false" />
+                        <Property mapKey="Vorticity_samplingStrategyType" name="Vorticity_samplingStrategyType" value="clamp" />
+                        <Property mapKey="enabled" name="enabled" value="true" />
+                        <Property mapKey="filterList" name="filterList">
+                            <items>
+                                <item value="Binarization" />
+                                <item value="Binary Median Filter" />
+                                <item value="Gaussian Filter" />
+                                <item value="Gradient" />
+                                <item value="Median Filter" />
+                                <item value="Morphology Filter" />
+                                <item value="Resample Filter" />
+                                <item value="Rescale Filter" />
+                                <item value="Thresholding Filter" />
+                                <item value="Value Map" />
+                                <item value="Vorticity" />
+                            </items>
+                            <instances>
+                                <item itemId="0" instanceId="1" active="true" name="Binarization (1)" />
+                            </instances>
+                        </Property>
+                        <Property mapKey="invalidationMode" name="invalidationMode" value="invalidateAbort" />
+                        <Property mapKey="manualUpdateButton_" name="manualUpdateButton_" guiName="Start Preprocessing" />
+                        <Property mapKey="outputVolumeDeflateLevel" name="outputVolumeDeflateLevel" value="1" />
+                        <Property mapKey="outputVolumeFilePath" name="outputVolumeFilePath" watchMode="3" fileWatchEnabled="false" useGeneratedPath="true">
+                            <paths noPathSet="false">
+                                <paths>
+                                    <item value="../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/a76fbfb4-5989-4acc-8232-260830730951.h5" />
+                                    <item value="../../../../Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/a76fbfb4-5989-4acc-8232-260830730951.h5" />
+                                    <item value="/home/juli/Voreen/tmp/5c2edfcc-3b1f-4a4c-9ca9-52248d7d3901/a76fbfb4-5989-4acc-8232-260830730951.h5" />
+                                </paths>
+                            </paths>
+                        </Property>
+                        <Property mapKey="progressDisplay" name="progressDisplay" guiName="Progress (Thresholding)" />
+                        <Property mapKey="statusDisplay" name="statusDisplay" value="Interrupted" />
+                        <Property mapKey="stopUpdateButton" name="stopUpdateButton" />
+                        <Property mapKey="synchronousComputation" name="synchronousComputation" value="false" />
+                        <Property mapKey="valueMap" name="valueMap" domainFittingStrategy="1" computeHistogram="true">
+                            <MetaData>
+                                <MetaItem name="ToolWindow" type="WindowStateMetaData" visible="false" />
+                            </MetaData>
+                            <TransferFunction type="TransFuncIntensity" alphaMode="1" filter="0" dataType="5121" gammaValue="1">
+                                <texDimensions x="1024" y="1" z="1" />
+                                <domain x="0" y="1" />
+                                <threshold x="0" y="1" />
+                                <Keys>
+                                    <key type="TransFuncMappingKey" intensity="0" split="false">
+                                        <colorL r="0" g="0" b="0" a="0" />
+                                    </key>
+                                    <key type="TransFuncMappingKey" intensity="1" split="false">
+                                        <colorL r="255" g="255" b="255" a="255" />
+                                    </key>
+                                </Keys>
+                            </TransferFunction>
+                        </Property>
+                    </Properties>
+                    <Inports>
+                        <Port name="volumehandle.input" direction="1" portID="volumehandle.input" guiName="Volume Input" allowMultipleConnections="false" invalidationLevel="1">
+                            <Properties>
+                                <Property mapKey="textureBorderIntensity" name="textureBorderIntensity" value="0" />
+                                <Property mapKey="textureClampMode_" name="textureClampMode_" value="clamp-to-edge" />
+                                <Property mapKey="textureFilterMode_" name="textureFilterMode_" value="linear" />
+                            </Properties>
+                        </Port>
+                    </Inports>
+                    <Outports>
+                        <Port name="volumehandle.output" direction="0" portID="volumehandle.output" guiName="Volume Output" allowMultipleConnections="true" invalidationLevel="0">
+                            <Properties>
+                                <Property mapKey="blockEvents" name="blockEvents" value="false" />
+                            </Properties>
+                        </Port>
+                    </Outports>
+                    <CoProcessorInports />
+                    <CoProcessorOutports />
+                    <InteractionHandlers />
+                    <Binarization_instanceSettings>
+                        <value key="1">
+                            <threshold name="Binarization_threshold" value="0.5" minValue="0" maxValue="1" tracking="false" />
+                        </value>
+                    </Binarization_instanceSettings>
+                    <Binary_Median_Filter_instanceSettings />
+                    <Gaussian_Filter_instanceSettings />
+                    <Gradient_instanceSettings />
+                    <Median_Filter_instanceSettings />
+                    <Morphology_Filter_instanceSettings />
+                    <Resample_Filter_instanceSettings />
+                    <Rescale_Filter_instanceSettings />
+                    <Thresholding_Filter_instanceSettings />
+                    <Value_Map_instanceSettings />
+                    <Vorticity_instanceSettings />
+                </Processor>
+            </Processors>
+            <Connections>
+                <Connection>
+                    <Outport name="volumehandle.volumehandle">
+                        <Processor type="VolumeSource" ref="ref0" />
+                    </Outport>
+                    <Inport name="volumehandle.input">
+                        <Processor type="VolumeFilterList" ref="ref1" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="vesselgraphcreator_graph.outport">
+                        <Processor type="VesselGraphCreator" ref="ref2" />
+                    </Outport>
+                    <Inport name="graph.input">
+                        <Processor type="VesselGraphSave" ref="ref3" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="vesselgraphcreator_graph.outport">
+                        <Processor type="VesselGraphCreator" ref="ref2" />
+                    </Outport>
+                    <Inport name="graph.input">
+                        <Processor type="VesselGraphGlobalStats" ref="ref4" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="volumehandle.volumehandle">
+                        <Processor type="VolumeSource" ref="ref5" />
+                    </Outport>
+                    <Inport name="vesselgraphcreator.samplemask.inport">
+                        <Processor type="VesselGraphCreator" ref="ref2" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="connectedcomponentanalysis.outport">
+                        <Processor type="ConnectedComponentAnalysis" ref="ref6" />
+                    </Outport>
+                    <Inport name="connectedcomponentanalysis.inport">
+                        <Processor type="ConnectedComponentAnalysis" ref="ref7" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="connectedcomponentanalysis.outport">
+                        <Processor type="ConnectedComponentAnalysis" ref="ref7" />
+                    </Outport>
+                    <Inport name="vesselgraphcreator.segmentedVolume.inport">
+                        <Processor type="VesselGraphCreator" ref="ref2" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="volumehandle.output">
+                        <Processor type="VolumeFilterList" ref="ref8" />
+                    </Outport>
+                    <Inport name="connectedcomponentanalysis.inport">
+                        <Processor type="ConnectedComponentAnalysis" ref="ref6" />
+                    </Inport>
+                </Connection>
+                <Connection>
+                    <Outport name="volumehandle.output">
+                        <Processor type="VolumeFilterList" ref="ref1" />
+                    </Outport>
+                    <Inport name="volumehandle.input">
+                        <Processor type="VolumeFilterList" ref="ref8" />
+                    </Inport>
+                </Connection>
+            </Connections>
+            <CoProcessorConnections />
+            <PropertyLinks />
+        </ProcessorNetwork>
+        <Animation />
+        <ApplicationModeConfig MainCanvas="">
+            <PropertyGroups>
+                <item value="Vessel Volume Input" />
+                <item value="Sample Mask Volume Input (optional)" />
+                <item value="Preprocessing" />
+                <item value="Vessel Graph Extraction" />
+                <item value="Rendering" />
+                <item value="Data Export" />
+            </PropertyGroups>
+            <GroupMembership>
+                <value key="Cavity Removal.progressDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="31" />
+                </value>
+                <value key="Cavity Removal.statusDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="32" />
+                </value>
+                <value key="Object Removal.minBoundsDiagonal">
+                    <First value="Preprocessing" />
+                    <Second value="10" />
+                </value>
+                <value key="Object Removal.minBoundsDiagonalRelative">
+                    <First value="Preprocessing" />
+                    <Second value="9" />
+                </value>
+                <value key="Object Removal.progressDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="40" />
+                </value>
+                <value key="Object Removal.statusDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="41" />
+                </value>
+                <value key="Sample Mask.volumeInfo">
+                    <First value="Sample Mask Volume Input (optional)" />
+                    <Second value="1" />
+                </value>
+                <value key="Sample Mask.volumeURL">
+                    <First value="Sample Mask Volume Input (optional)" />
+                    <Second value="0" />
+                </value>
+                <value key="Surface Smoothing.Binary_Median_Filter_extentx">
+                    <First value="Preprocessing" />
+                    <Second value="6" />
+                </value>
+                <value key="Surface Smoothing.Binary_Median_Filter_extenty">
+                    <First value="Preprocessing" />
+                    <Second value="7" />
+                </value>
+                <value key="Surface Smoothing.Binary_Median_Filter_extentz">
+                    <First value="Preprocessing" />
+                    <Second value="8" />
+                </value>
+                <value key="Surface Smoothing.Binary_Median_Filter_useUniformExtent">
+                    <First value="Preprocessing" />
+                    <Second value="5" />
+                </value>
+                <value key="Surface Smoothing.enabled">
+                    <First value="Preprocessing" />
+                    <Second value="4" />
+                </value>
+                <value key="Surface Smoothing.progressDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="20" />
+                </value>
+                <value key="Surface Smoothing.statusDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="21" />
+                </value>
+                <value key="Vessel Volume.volumeInfo">
+                    <First value="Vessel Volume Input" />
+                    <Second value="1" />
+                </value>
+                <value key="Vessel Volume.volumeURL">
+                    <First value="Vessel Volume Input" />
+                    <Second value="0" />
+                </value>
+                <value key="VesselGraphCreator.manualUpdateButton_">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="22" />
+                </value>
+                <value key="VesselGraphCreator.minBulgeSize">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="21" />
+                </value>
+                <value key="VesselGraphCreator.numRefinementIterations">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="20" />
+                </value>
+                <value key="VesselGraphCreator.progressDisplay">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="25" />
+                </value>
+                <value key="VesselGraphCreator.statusDisplay">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="26" />
+                </value>
+                <value key="VesselGraphCreator.stopUpdateButton">
+                    <First value="Vessel Graph Extraction" />
+                    <Second value="22" />
+                </value>
+                <value key="VesselGraphGlobalStats.exportButton_">
+                    <First value="Data Export" />
+                    <Second value="22" />
+                </value>
+                <value key="VesselGraphGlobalStats.nodeExportFilePath">
+                    <First value="Data Export" />
+                    <Second value="21" />
+                </value>
+                <value key="VesselGraphGlobalStats.segmentExportFilePath">
+                    <First value="Data Export" />
+                    <Second value="20" />
+                </value>
+                <value key="VesselGraphSave.graphFilePath">
+                    <First value="Data Export" />
+                    <Second value="10" />
+                </value>
+                <value key="VesselGraphSave.save">
+                    <First value="Data Export" />
+                    <Second value="11" />
+                </value>
+                <value key="VolumeFilterList.manualUpdateButton_">
+                    <First value="Preprocessing" />
+                    <Second value="15" />
+                </value>
+                <value key="VolumeFilterList.progressDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="16" />
+                </value>
+                <value key="VolumeFilterList.statusDisplay">
+                    <First value="Preprocessing" />
+                    <Second value="17" />
+                </value>
+                <value key="VolumeFilterList.stopUpdateButton">
+                    <First value="Preprocessing" />
+                    <Second value="15" />
+                </value>
+            </GroupMembership>
+            <MenuEntityVisibility>
+                <value key="General Settings..." value="true" />
+                <value key="Open Workspace..." value="true" />
+                <value key="Properties" value="true" />
+                <value key="Save Workspace" value="true" />
+                <value key="Save Workspace As..." value="true" />
+                <value key="Workspace Description" value="true" />
+            </MenuEntityVisibility>
+        </ApplicationModeConfig>
+        <GlobalDescription>
+            <![CDATA[A workspace demonstrating the functionality VesselGraphCreator of the VesselNetworkAnalysis module:
+<br>
+<br>
+The input volume should either already contain a binary foreground segmentation of vessel data, or should be able to be converted to one by using a simple global treshold. The binary image can then be postprocessed using an optional surface smoothing step and removal of small foreground (adjustable by parameters) or background components.
+Then the <b>VesselGraphCreator</b> extracts a VesselGraph with centerlines which can be rendered, saved and exported  to csv files for further processing.
+<br>
+<br>
+The VesselGraphCreator implements the algorithm described in the article <b>Scalable Robust Graph and Feature Extraction for Arbitrary Vessel Networks in Large Volumetric Datasets</b> (Drees et al.), which you are kindly asked to cite if you find it useful in your research.
+<br>
+<br>
+<b>Note:</b> While the data processing processors are capable of handling volumes that exceed the main memory capacity, others that are used in this workspace (such as those handling the rendering of iso-surfaces) are not. To process such volumes it is necessary to use or build specialized workspaces using, for example, <b>SingleOctreeRaycaster</b> for rendering of intermediate results.]]>
+        </GlobalDescription>
+    </Workspace>
+</VoreenData>
