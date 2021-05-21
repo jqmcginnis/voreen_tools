@@ -6,10 +6,10 @@ Future Releases of Voreen will incorporate these source code changes as well.
 
 This version contains bugfixes that mitigate scalability issues of the JSON Streaming Serializer of Vorren v5.2.0:
 
-voreen-src-unix-nightly.tar.gz contains the source code, which can be built using ccmake
-VoreenVE-nightly.tar.gz contains the Linux App Image
+* voreen-src-unix-nightly.tar.gz contains the source code, which can be built using ccmake
+* VoreenVE-nightly.tar.gz contains the Linux App Image
 
-The following workflow is recommended:
+#### The following workflow is recommended:
 
 For testing Voreen on small-scale volumes (MB to GB range), you can use the provided workspace "vesselgraphextraction".
 On large-scale volumes (GB to TB) data, it is recommended to use my vesselgraphextraction-customized workspace.
