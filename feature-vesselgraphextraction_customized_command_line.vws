@@ -34,9 +34,7 @@
                             <urls protocol="">
                                 <path noPathSet="false">
                                     <paths>
-                                        <item value="../../../../../media/juli/thesis/bulge_size_reference_graph/ROI/BL6-3mo-5_iso3um_probs_bin0p48_ROI1.nii" />
-                                        <item value="../../../../../../media/juli/thesis/bulge_size_reference_graph/ROI/BL6-3mo-5_iso3um_probs_bin0p48_ROI1.nii" />
-                                        <item value="/media/juli/thesis/bulge_size_reference_graph/ROI/BL6-3mo-5_iso3um_probs_bin0p48_ROI1.nii" />
+                                        <item value="/home/voreen_data/volume.nii" />
                                     </paths>
                                 </path>
                                 <searchParameters>
@@ -127,9 +125,7 @@
                         <Property mapKey="graphFilePath" name="graphFilePath" guiName="Vessel Graph File" watchMode="1" fileWatchEnabled="false">
                             <paths noPathSet="false">
                                 <paths>
-                                    <item value="voreen-src-unix-nightly/bin/graph.vvg.gz" />
-                                    <item value="bin/graph.vvg.gz" />
-                                    <item value="/home/juli/tum/git_repositories/voreen/voreen-src-unix-nightly/bin/graph.vvg.gz" />
+                                    <item value="/home/voreen_data/graph.vvg.gz" />
                                 </paths>
                             </paths>
                         </Property>
@@ -406,9 +402,7 @@
                         <Property mapKey="nodeExportFilePath" name="nodeExportFilePath" guiName="Node Data Export File" watchMode="1" fileWatchEnabled="false">
                             <paths noPathSet="false">
                                 <paths>
-                                    <item value="voreen-src-unix-nightly/bin/nodes.csv" />
-                                    <item value="bin/nodes.csv" />
-                                    <item value="/home/juli/tum/git_repositories/voreen/voreen-src-unix-nightly/bin/nodes.csv" />
+                                    <item value="/home/voreen_data/nodes.csv" />
                                 </paths>
                             </paths>
                         </Property>
@@ -417,9 +411,7 @@
                         <Property mapKey="segmentExportFilePath" name="segmentExportFilePath" guiName="Edge Data Export File" watchMode="1" fileWatchEnabled="false">
                             <paths noPathSet="false">
                                 <paths>
-                                    <item value="voreen-src-unix-nightly/bin/edges.csv" />
-                                    <item value="bin/edges.csv" />
-                                    <item value="/home/juli/tum/git_repositories/voreen/voreen-src-unix-nightly/bin/edges.csv" />
+                                    <item value="/home/voreen_data/edges.csv" />
                                 </paths>
                             </paths>
                         </Property>

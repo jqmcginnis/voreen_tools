@@ -1,0 +1,1 @@
+./home/voreen-build/bin/voreentool --workspace /home/voreen-build/bin/feature-vesselgraphextraction_customized_command_line.vws -platform minimal --trigger-volumesaves --trigger-geometrysaves --workdir /home/voreen-work/ --tempdir /home/voreen-temp/ --cachedir /home/voreen-cache/ 
