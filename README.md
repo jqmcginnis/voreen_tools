@@ -16,3 +16,16 @@ On large-scale volumes (GB to TB) data, it is recommended to use my vesselgraphe
 It does not visualize the graph and skips some steps of the original pipeline thus offering a more scalable solution.
 If you have any questions (or in case it does not work), write an email to julian.mcginnis@tum.de
 
+#### Headless Version
+
+feature-vesselgraphextraction_customized_command_line.vws can be used to run Voreen in headless mode.
+
+#### Running voreen on a cluster
+
+Use docker image or charliecloud image to run on lrz cloud!
+
+E.g. ch-run  -b /lrz/sys/.:/lrz/sys/ -b /dss/dsshome1/lrz/sys/.:/dss/dsshome1/lrz/sys/ -b $SCRATCH/.:/scratch -w /dss/dsshome1/lxc06/ga82tus2/docker_directory/voreen_without_bindings/ sh /home/voreen-build/bin/run_voreen.sh --no-home
+
+c.f. https://doku.lrz.de/display/PUBLIC/Charliecloud+at+LRZ
+
+
