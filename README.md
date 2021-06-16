@@ -29,3 +29,9 @@ E.g. ch-run  -b /lrz/sys/.:/lrz/sys/ -b /dss/dsshome1/lrz/sys/.:/dss/dsshome1/lr
 c.f. https://doku.lrz.de/display/PUBLIC/Charliecloud+at+LRZ
 
 
+#### VTK based visualization of graphs
+
+You can use voreen_graph_radius_to_vtk.py to generate a vtk_PolyDataFile file (e.g. open in Paraview)from the graph that displays vessels as tubes, incorporating the average vessel diameter as tube diameter. 
+
+If you would rather display the tubular structures in ITK-Snap, you can convert the .vtk file using the vtk_to_nifti.py script.
+
