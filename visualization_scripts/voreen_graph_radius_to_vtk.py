@@ -28,7 +28,6 @@ parser.add_argument('-n','--node_list', help='Name of the node list csv file.', 
 parser.add_argument('-e','--edge_list', help='Filtering condition: average radius of the vessel.', required=True)
 parser.add_argument('-s','--scaling_factor', help='Scaling Factor, default: 1.', default=1.0)
 parser.add_argument('-o','--output_directory', help='Output name of converted vtk files.', type=dir_path, required=True)
-parser.add_argument('--export_nifti', action='store_true')
 
 # define the name of the directory to be created
 path = "vtk_tmp/"
@@ -50,9 +49,6 @@ node_path = args['node_list']
 edge_path = args['edge_list']
 factor = float(args['scaling_factor'])
 output_path = os.path.abspath(args['output_directory'])
-export = args['export_nifti']
-
-print("exporting", export)
 
 # 1) nodes
 
@@ -102,6 +98,7 @@ for i in range (0, len(edge_index)):
      t1 = vd.Tube(ln, c="blue", r=radius)
      vd.write(t1,os.path.join(path,f'{i}.vtk'))
      filenames.append(os.path.join(path,f'{i}.vtk'))
+
 
 reader = vtkPolyDataReader()
 append = vtkAppendPolyData()
