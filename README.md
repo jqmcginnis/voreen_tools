@@ -15,8 +15,17 @@ For build instructions for Linux/MacOS/Windows please refer to:
 
 https://www.uni-muenster.de/Voreen/documentation/build_instructions.html
 
+#### Install dependecies
+
+<sub> 
+sudo apt install g++ git cmake libboost-all-dev libglew-dev qt5-default libqt5svg5-dev  libdevil-dev ffmpeg libswscale-dev libavcodec-dev libavformat-dev
+</sub> 
+
+#### Voreen Build Configuration
+
 For utilizing voreentool (the command line version) and the vesselgraphextraction features make sure to enable the following settings in the cmake file:
 
+<sub>
 VRN_MODULE_BASE                  ON     <br />                                      
 VRN_MODULE_BIGDATAIMAGEPROCESS   ON     <br />                                      
 VRN_MODULE_CONNEXE               ON     <br />                                      
@@ -55,15 +64,28 @@ VRN_USE_GENERIC_FILE_WATCHER     OFF    <br />
 VRN_USE_HDF5_VERSION             1.10   <br />                                      
 VRN_USE_SSE41                    ON     <br />                                      
 VRN_VESSELNETWORKANALYSIS_BUIL   OFF    <br />
+</sub>
 
 To enable command line tool generation set: <br />
 
-VRN_BUILD_VOREENTOOL             ON       <br />      
+<sub> VRN_BUILD_VOREENTOOL             ON      </sub> <br />      
  
 To enable gui tool generation set: <br />
 
-VRN_BUILD_VOREENVE               ON   <br />
+<sub> VRN_BUILD_VOREENVE               ON   </sub> <br />
 
+#### Building VTK (prerequisite)
+
+You will need to build VTK for this: <br />
+
+https://vtk.org/download/ <br />
+
+Build it following the hints here:
+
+mkdir VTK-build <br />
+cd VTK-build <br />
+ccmake /path/to/VTK <br />
+make -j $NUMBER_OF_PROCESSES . <br />
 
 #### The following workflow is recommended:
 
@@ -72,9 +94,11 @@ On large-scale volumes (GB to TB) data, it is recommended to use my vesselgraphe
 It does not visualize the graph and skips some steps of the original pipeline thus offering a more scalable solution.
 If you have any questions (or in case it does not work), write an email to julian.mcginnis@tum.de
 
+To switch between Application Mode / Network Mode use short keys F4/F5 or the modes provided in the toolbar.
+
 #### Headless Version
 
-feature-vesselgraphextraction_customized_command_line.vws can be used to run Voreen in headless mode.
+feature-vesselgraphextraction_customized_command_line.vws can be used to run Voreen in headless mode. You can also specify your own workspace in Voreen in the so-called network mode.
 
 #### Running voreen on a cluster
 
