@@ -60,7 +60,8 @@ with open(os.path.join(temp_directory,voreen_workspace), 'r') as file :
 filedata = filedata.replace("/home/voreen_data/volume.nii", volume_path)
 filedata = filedata.replace("/home/voreen_data/nodes.csv", node_path)
 filedata = filedata.replace("/home/voreen_data/edges.csv", edge_path)
-filedata = filedata.replace('<Property mapKey="minBulgeSize" name="minBulgeSize" value="3"/>', bulge_path)
+filedata = filedata.replace('<Property mapKey="minBulgeSize" name="minBulgeSize" value="3" />', bulge_path)
+
 
 # Write the file out again
 with open(os.path.join(temp_directory,voreen_workspace), 'w') as file:
