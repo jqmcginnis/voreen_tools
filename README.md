@@ -82,10 +82,12 @@ https://vtk.org/download/ <br />
 
 Build it following the hints here:
 
+<sub>
 mkdir VTK-build <br />
 cd VTK-build <br />
 ccmake /path/to/VTK <br />
 make -j $NUMBER_OF_PROCESSES . <br />
+</sub>
 
 #### The following workflow is recommended:
 
