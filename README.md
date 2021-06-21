@@ -9,6 +9,62 @@ This version contains bugfixes that mitigate scalability issues of the JSON Stre
 * voreen-src-unix-nightly.tar.gz contains the source code, which can be built using ccmake
 * VoreenVE-nightly.tar.gz contains the Linux App Image
 
+#### Building Voreen for your platform
+
+For build instructions for Linux/MacOS/Windows please refer to:
+
+https://www.uni-muenster.de/Voreen/documentation/build_instructions.html
+
+For utilizing voreentool (the command line version) and the vesselgraphextraction features make sure to enable the following settings in the cmake file:
+
+VRN_MODULE_BASE                  ON     <br />                                      
+VRN_MODULE_BIGDATAIMAGEPROCESS   ON     <br />                                      
+VRN_MODULE_CONNEXE               ON     <br />                                      
+VRN_MODULE_DEPRECATED            OFF    <br />                                      
+VRN_MODULE_DEVIL                 ON     <br />                                      
+VRN_MODULE_ENSEMBLEANALYSIS      ON     <br />                                      
+VRN_MODULE_EXPERIMENTAL          OFF    <br />                                      
+VRN_MODULE_FFMPEG                OFF    <br />                                  
+VRN_MODULE_FLOWANALYSIS          ON     <br />                                      
+VRN_MODULE_GDCM                  OFF    <br />                                      
+VRN_MODULE_HDF5                  ON     <br />                                      
+VRN_MODULE_ITK                   OFF    <br />                                      
+VRN_MODULE_ITK_GENERATED         OFF    <br />                                      
+VRN_MODULE_OPENCL                OFF    <br />                                      
+VRN_MODULE_OPENMP                OFF    <br />                                      
+VRN_MODULE_PLOTTING              ON     <br />                                      
+VRN_MODULE_POI                   OFF    <br />                                      
+VRN_MODULE_PVM                   ON     <br />                                      
+VRN_MODULE_PYTHON                ON     <br />                                      
+VRN_MODULE_RANDOMWALKER          ON     <br />                                      
+VRN_MODULE_SAMPLE                OFF    <br />                                      
+VRN_MODULE_SEGY                  ON     <br />                                      
+VRN_MODULE_STAGING               ON     <br />                                      
+VRN_MODULE_STEREOSCOPY           ON     <br />                                      
+VRN_MODULE_SURFACE               ON     <br />  
+VRN_MODULE_TIFF                  OFF    <br />                                      
+VRN_MODULE_ULTRAMICROSCOPYDEPL   OFF    <br />                                      
+VRN_MODULE_VESSELNETWORKANALYS   ON     <br />                                      
+VRN_MODULE_VOLUMELABELING        OFF    <br />                                      
+VRN_MODULE_VTK                   ON     <br />                                    
+VRN_MODULE_ZIP                   ON     <br />                                      
+VRN_NON_INTERACTIVE              OFF    <br />                                      
+VRN_OPENGL_COMPATIBILITY_PROFI   OFF    <br />                                      
+VRN_PRECOMPILED_HEADER           OFF    <br />                                      
+VRN_USE_GENERIC_FILE_WATCHER     OFF    <br />                                    
+VRN_USE_HDF5_VERSION             1.10   <br />                                      
+VRN_USE_SSE41                    ON     <br />                                      
+VRN_VESSELNETWORKANALYSIS_BUIL   OFF    <br />
+
+To enable command line tool generation set: <br />
+
+VRN_BUILD_VOREENTOOL             ON       <br />      
+ 
+To enable gui tool generation set: <br />
+
+VRN_BUILD_VOREENVE               ON   <br />
+
+
 #### The following workflow is recommended:
 
 For testing Voreen on small-scale volumes (MB to GB range), you can use the provided workspace "vesselgraphextraction".
