@@ -66,11 +66,11 @@ VRN_USE_SSE41                    ON     <br />
 VRN_VESSELNETWORKANALYSIS_BUIL   OFF    <br />
 </sub>
 
-To enable command line tool generation set: <br />
+#### To enable command line tool generation set:
 
 <sub> VRN_BUILD_VOREENTOOL             ON      </sub> <br />      
  
-To enable gui tool generation set: <br />
+#### To enable gui tool generation set: <br />
 
 <sub> VRN_BUILD_VOREENVE               ON   </sub> <br />
 
