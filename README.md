@@ -117,3 +117,8 @@ You can use voreen_graph_radius_to_vtk.py to generate a vtk_PolyDataFile file (e
 
 If you would rather display the tubular structures in ITK-Snap, you can convert the .vtk file using the vtk_to_nifti.py script.
 
+### Graph Pruning
+
+As mentioned in the paper by Drees et.al., the graphs are by utilizing a "scale invariant, dimensionless property", the bulge size parameter.The bulge size parameter. It is defined as:
+
+"Intuitively, the bulge size measures how far a bump, bulge or branch has to extend from a parent vessel in order to be considered a separate vessel. This size is expressed relative to the radius of its parent vessel and itself, making it scale-independent. More formally, the bulge size is an edge feature, that is computed during the feature extraction, and is only defined for bulging edges, i.e., edges that connecta leaf node (degree 1) and a branching point (degree > 2."
