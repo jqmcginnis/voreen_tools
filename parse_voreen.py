@@ -33,9 +33,11 @@ voreen_tool_path = args['voreen_tool_path']
 workspace_path = args['workspace_file']
 
 volume_path = input_image_path
-edge_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_bulge_size_{bulge_size}_edges.csv'
-node_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_bulge_size_{bulge_size}_nodes.csv'
-graph_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_bulge_size_{bulge_size}_graph.vvg.gz'
+bulge_size_identifier = f'{bulge_size}'
+bulge_size_identifier = bulge_size_identifier.replace('.','_')
+edge_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_b_{bulge_size_identifier}_edges.csv'
+node_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_b_{bulge_size_identifier}_nodes.csv'
+graph_path = f'{os.path.join(workdir,os.path.splitext(input_image_path)[0])}_b_{bulge_size_identifier}_graph.vvg.gz'
 
 print(f'{volume_path}')
 print(f'{edge_path}')
