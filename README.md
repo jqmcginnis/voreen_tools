@@ -92,9 +92,9 @@ make -j $NUMBER_OF_PROCESSES . <br />
 #### The following workflow is recommended:
 
 For testing Voreen on small-scale volumes (MB to GB range), you can use the provided workspace "vesselgraphextraction".
-On large-scale volumes (GB to TB) data, it is recommended to use my vesselgraphextraction-customized workspace.
+On large-scale volumes (GB to TB) data, it is recommended to use the vesselgraphextraction-customized workspace.
 It does not visualize the graph and skips some steps of the original pipeline thus offering a more scalable solution.
-If you have any questions (or in case it does not work), write an email to julian.mcginnis@tum.de
+If you have any questions (or in case it does not work), please post an issue on github.
 
 To switch between Application Mode / Network Mode use short keys F4/F5 or the modes provided in the toolbar.
 
