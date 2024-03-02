@@ -45,6 +45,21 @@ As mentioned in the paper by Drees et.al., the graphs are by utilizing a "scale 
 
 "Intuitively, the bulge size measures how far a bump, bulge or branch has to extend from a parent vessel in order to be considered a separate vessel. This size is expressed relative to the radius of its parent vessel and itself, making it scale-independent. More formally, the bulge size is an edge feature, that is computed during the feature extraction, and is only defined for bulging edges, i.e., edges that connecta leaf node (degree 1) and a branching point (degree > 2."
 
+## Voreen Citation
+
+If you use voreen, please cite:
+```
+@article{drees2021scalable,
+  title={Scalable robust graph and feature extraction for arbitrary vessel networks in large volumetric datasets},
+  author={Drees, Dominik and Scherzinger, Aaron and H{\"a}gerling, Ren{\'e} and Kiefer, Friedemann and Jiang, Xiaoyi},
+  journal={BMC bioinformatics},
+  volume={22},
+  number={1},
+  pages={1--28},
+  year={2021},
+  publisher={BioMed Central}
+}
+```
 ### Post-processing
 
 For post-processing, as performed in our NeurIPS paper, please use the script provided in the post_processing section.
