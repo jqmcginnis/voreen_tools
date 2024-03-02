@@ -60,7 +60,17 @@ If you use voreen, please cite:
   publisher={BioMed Central}
 }
 ```
+
 ### Post-processing
 
 For post-processing, as performed in our NeurIPS paper, please use the script provided in the post_processing section.
+If you use our scripts for post-processing, please consider citing us:
 
+```
+@inproceedings{paetzold2021whole,
+  title={Whole brain vessel graphs: A dataset and benchmark for graph learning and neuroscience},
+  author={Paetzold, Johannes C and McGinnis, Julian and Shit, Suprosanna and Ezhov, Ivan and B{\"u}schl, Paul and Prabhakar, Chinmay and Sekuboyina, Anjany and Todorov, Mihail and Kaissis, Georgios and Ert{\"u}rk, Ali and others},
+  booktitle={Thirty-Fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)},
+  year={2021}
+}
+```
